@@ -10,12 +10,6 @@ Sorting Queries
 .. autoclass:: countries.base.queries.SortingCountryQueries
     :members:
 
-Collection Queries
-------------------
-
-.. autoclass:: countries.base.queries.CollectionCountryQueries
-    :members:
-
 Aggregation Queries
 -------------------
 

@@ -9,9 +9,6 @@ class BasicCountryQueries(ABC):
     Defines basic queries for class CountryRepository.
     """
 
-    def __init__(self) -> None:
-        super().__init__()
-
     @abstractmethod
     def get_greatest_population(self) -> int:
         """

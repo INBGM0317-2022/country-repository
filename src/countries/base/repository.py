@@ -23,7 +23,6 @@ class CountryRepository:
             self.__countries = json.load(file, object_hook=self.type_mapper)
 
     @staticmethod
-    @abstractmethod
     def type_mapper(values: dict[str, any]) -> Country | dict[str, Any]:
         """
         Maps thw nodes of the JSON document to types.
@@ -31,6 +30,16 @@ class CountryRepository:
         :param values: a dictionary representing the actual node
         :return: the corresponding object
         """
+        if "name" in values:
+            country = Country(**values)
+            country.region = next(
+                entry.name
+                for entry in Country.Region
+                if entry.value == country.region
+            )
+            return country
+        else:
+            return values
 
     @property
     def countries(self):

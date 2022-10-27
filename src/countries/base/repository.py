@@ -33,7 +33,7 @@ class CountryRepository:
         if "name" in values:
             country = Country(**values)
             country.region = next(
-                entry.name
+                Country.Region[entry.name]
                 for entry in Country.Region
                 if entry.value == country.region
             )

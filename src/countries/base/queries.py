@@ -52,7 +52,7 @@ class BasicCountryQueries(ABC):
         """
 
     @abstractmethod
-    def is_population_exists(self, population: int) -> int:
+    def is_population_exists(self, population: int) -> bool:
         """
         Returns whether a country exists having the given population.
 
@@ -99,14 +99,6 @@ class BasicCountryQueries(ABC):
     def get_distinct_capitals(self) -> set[str]:
         """
         Returns a set containing all the distinct capitals.
-
-        :return: the capitals
-        """
-
-    @abstractmethod
-    def get_capitals_order_by_name_desc(self) -> list[str]:
-        """
-        Returns the capital of each country in descending order.
 
         :return: the capitals
         """
@@ -175,6 +167,14 @@ class SortingCountryQueries(ABC):
         * their capitals
 
         :return: the sorted list of countries
+        """
+
+    @abstractmethod
+    def get_capitals_order_by_name_desc(self) -> list[str]:
+        """
+        Returns the capital of each country in descending order.
+
+        :return: the capitals
         """
 
 

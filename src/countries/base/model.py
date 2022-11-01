@@ -10,24 +10,24 @@ class Country:
     Represents a country.
     """
 
-    name: str = field()
+    name: str = field(compare=False)
     """name of the country"""
-    population: int = field()
-    """population of the country"""
-    translations: dict[str, str] = field()
-    """translations of the name"""
-    timezones: list[str] = field()
-    """timezones of the country"""
-    independent: bool = field()
-    """whether the country is independent or not"""
-    area: int = field(default=None)
-    """area of the country"""
-    capital: str = field(default=None)
-    """capital of the country"""
-    region: Region = field(default=None)
-    """region of the country"""
-    code: str = field(default=None)
+    code: str = field(hash=True)
     """code of the country"""
+    population: int = field(compare=False)
+    """population of the country"""
+    translations: dict[str, str] = field(compare=False)
+    """translations of the name"""
+    timezones: list[str] = field(compare=False)
+    """timezones of the country"""
+    independent: bool = field(compare=False)
+    """whether the country is independent or not"""
+    area: int = field(compare=False, default=None)
+    """area of the country"""
+    capital: str = field(compare=False, default=None)
+    """capital of the country"""
+    region: Region = field(compare=False, default=None)
+    """region of the country"""
 
     class Region(Enum):
         """
